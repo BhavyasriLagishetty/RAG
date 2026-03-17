@@ -117,43 +117,61 @@ Copy
 2. FAISS performs similarity search across all document chunks
 3. Top-5 most relevant chunks are retrieved as context
 
+
 ### 3 — Generate (Groq Inference)
 
 ```python
 retrieved_context = " ".join(top_5_chunks)
 prompt = f"Answer using only this context:\n\n{retrieved_context}\n\nQuestion: {user_query}"
 response = llama3_1_8b.generate(prompt)
-The Llama3.1-8B model generates answers strictly from provided context — no hallucinations, no external knowledge.
-4 — Display
-Streaming answer display with markdown formatting
-Source chunks expandable in sidebar
-Response time measurement (typically 0.5-2 seconds)
-Document similarity scores visible
-Usage Phases
-Table
-Phase	Sessions	What the System Does
-Setup	1	Install dependencies, set API keys, load PDFs
-Indexing	1	Create embeddings, build FAISS index (one-time)
-Exploration	1-5	Basic questions, testing retrieval quality
-Research	5-20	Deep questions, cross-document analysis
-Mastery	20+	Complex multi-hop queries, full paper synthesis
-The Documents — AI Research Papers
+```
+
+The **Llama3.1-8B** model generates answers strictly from provided context — no hallucinations, no external knowledge.
+
+### 4 — Display
+- Streaming answer display with markdown formatting
+- Source chunks expandable in sidebar
+- Response time measurement (typically 0.5-2 seconds)
+- Document similarity scores visible
+
+---
+
+## Usage Phases
+
+| Phase | Sessions | What the System Does |
+|-------|----------|---------------------|
+| Setup | 1 | Install dependencies, set API keys, load PDFs |
+| Indexing | 1 | Create embeddings, build FAISS index (one-time) |
+| Exploration | 1-5 | Basic questions, testing retrieval quality |
+| Research | 5-20 | Deep questions, cross-document analysis |
+| Mastery | 20+ | Complex multi-hop queries, full paper synthesis |
+
+---
+
+## The Documents — AI Research Papers
+
 A hand-selected collection of foundational AI papers for immediate testing:
-plain
-Copy
+
+```
               [Attention Is All You Need]
                      (Transformer)
                           ↓
               [Large Language Models Survey]
                      (LLM Overview)
-Table
-Paper	Content	Key Topics
-Attention.pdf	"Attention Is All You Need" (Vaswani et al.)	Transformers, self-attention, positional encoding
-LLM.pdf	LLM survey paper	Architecture, training, capabilities, limitations
+```
+
+| Paper | Content | Key Topics |
+|-------|---------|------------|
+| Attention.pdf | "Attention Is All You Need" (Vaswani et al.) | Transformers, self-attention, positional encoding |
+| LLM.pdf | LLM survey paper | Architecture, training, capabilities, limitations |
+
 The environment handles academic formatting, mathematical notation, citations, and multi-column layouts.
-Project Structure
-plain
-Copy
+
+---
+
+## Project Structure
+
+```
 rag-document-qa/
 │
 ├── app.py                   ← Entry point — run this
@@ -168,14 +186,20 @@ rag-document-qa/
 │
 └── (Session State)          ← Runtime created
     └── vectors              ← FAISS index (in-memory)
-Getting Started
-Prerequisites
-Python 3.8 or higher
-pip
-Groq API key (free at console.groq.com)
-Installation
-bash
-Copy
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Python 3.8 or higher
+- pip
+- Groq API key (free at [console.groq.com](https://console.groq.com))
+
+### Installation
+
+```bash
 # 1. Clone the repository
 git clone https://github.com/BhavyasriLagishetty/RAG.git
 cd RAG
@@ -195,42 +219,71 @@ cp .env.example .env            # Or create manually
 # 5. Prepare documents
 mkdir -p research_papers
 # Copy your PDFs into research_papers/ folder
-Run Application
-bash
-Copy
+```
+
+### Run Application
+
+```bash
 streamlit run app.py
+```
+
 Two interfaces open immediately:
-Streamlit web app — interactive Q&A interface at http://localhost:8501
-Terminal logs — processing status and debug information
+- **Streamlit web app** — interactive Q&A interface at `http://localhost:8501`
+- **Terminal logs** — processing status and debug information
+
 The app resumes with existing embeddings if session state persists.
-Hyperparameters
-Table
-Parameter	Value	Effect
-CHUNK_SIZE	1000 chars	Large context windows per chunk
-CHUNK_OVERLAP	200 chars	Overlap maintains context continuity
-EMBEDDING_MODEL	all-MiniLM-L6-v2	Fast, high-quality sentence embeddings
-VECTOR_DIM	384	Dense vector representation
-TOP_K_RETRIEVAL	5 chunks	Balance between context breadth and precision
-LLM_MODEL	llama-3.1-8b-instant	Fast, capable instruction-following model
-TEMPERATURE	0.7	Balanced creativity and determinism
-MAX_TOKENS	1024	Sufficient for detailed answers
-Dependencies
-Table
-Package	Version	Purpose
-streamlit	≥ 1.28.0	Web application interface
-langchain-groq	≥ 0.1.0	Groq LLM integration
-langchain-community	≥ 0.0.10	Community loaders and vector stores
-langchain-text-splitters	≥ 0.0.1	Document chunking strategies
-faiss-cpu	≥ 1.7.4	Facebook AI Similarity Search (CPU)
-sentence-transformers	≥ 2.2.0	HuggingFace embeddings backend
-python-dotenv	≥ 1.0.0	Environment variable management
-pypdf	≥ 3.0.0	PDF parsing and text extraction
-License
-Distributed under the MIT License. See LICENSE for details.
-Author
-Bhavyasri Lagishetty
-Building intelligent systems that understand documents
-https://github.com/BhavyasriLagishetty
-https://www.linkedin.com/in/bhavyasri-lagishetty/
-mailto:bhavyasri.lagishetty@gmail.com
-If you found this project useful, please consider giving it a ⭐
+
+---
+
+## Hyperparameters
+
+| Parameter | Value | Effect |
+|-----------|-------|--------|
+| `CHUNK_SIZE` | 1000 chars | Large context windows per chunk |
+| `CHUNK_OVERLAP` | 200 chars | Overlap maintains context continuity |
+| `EMBEDDING_MODEL` | all-MiniLM-L6-v2 | Fast, high-quality sentence embeddings |
+| `VECTOR_DIM` | 384 | Dense vector representation |
+| `TOP_K_RETRIEVAL` | 5 chunks | Balance between context breadth and precision |
+| `LLM_MODEL` | llama-3.1-8b-instant | Fast, capable instruction-following model |
+| `TEMPERATURE` | 0.7 | Balanced creativity and determinism |
+| `MAX_TOKENS` | 1024 | Sufficient for detailed answers |
+
+---
+
+## Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `streamlit` | ≥ 1.28.0 | Web application interface |
+| `langchain-groq` | ≥ 0.1.0 | Groq LLM integration |
+| `langchain-community` | ≥ 0.0.10 | Community loaders and vector stores |
+| `langchain-text-splitters` | ≥ 0.0.1 | Document chunking strategies |
+| `faiss-cpu` | ≥ 1.7.4 | Facebook AI Similarity Search (CPU) |
+| `sentence-transformers` | ≥ 2.2.0 | HuggingFace embeddings backend |
+| `python-dotenv` | ≥ 1.0.0 | Environment variable management |
+| `pypdf` | ≥ 3.0.0 | PDF parsing and text extraction |
+
+---
+
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+## Author
+
+**Bhavyasri Lagishetty**
+
+*Building intelligent systems that understand documents*
+
+[![GitHub](https://img.shields.io/badge/GitHub-BhavyasriLagishetty-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BhavyasriLagishetty)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-BhavyasriLagishetty-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhavyasri-lagishetty/)
+[![Email](https://img.shields.io/badge/Email-bhavyasri.lagishetty%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bhavyasri.lagishetty@gmail.com)
+
+*If you found this project useful, please consider giving it a ⭐*
+```
+
+---
+
+
