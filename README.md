@@ -1,43 +1,82 @@
-README
-MIT license
-RAG Document Q&A
-Retrieval-Augmented Generation with Groq & Llama3
+  I'll create a properly formatted, attractive README.md with full Markdown formatting, badges, emojis, and visual elements. You can copy and paste this directly.
 
-Python Streamlit LangChain FAISS License: MIT
+```markdown
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8+-blue.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.8+"/>
+  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit"/>
+  <img src="https://img.shields.io/badge/Groq-FF6B35?style=for-the-badge&logo=groq&logoColor=white" alt="Groq"/>
+  <img src="https://img.shields.io/badge/Llama3-0467DF?style=for-the-badge&logo=meta&logoColor=white" alt="Llama3"/>
+  <img src="https://img.shields.io/badge/FAISS-0096FF?style=for-the-badge&logo=facebook&logoColor=white" alt="FAISS"/>
+  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain"/>
+  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License"/>
+</p>
 
+<h1 align="center">📚 RAG Document Q&A</h1>
 
-An intelligent document questioning system that lets you chat with your PDF research papers using state-of-the-art retrieval-augmented generation. No manual searching. No reading through hundreds of pages. Just ask questions in natural language and get precise, sourced answers instantly.
+<p align="center">
+  <b>Retrieval-Augmented Generation with Groq & Llama3</b>
+</p>
 
+<p align="center">
+  An intelligent document questioning system that lets you chat with your PDF research papers using state-of-the-art retrieval-augmented generation. No manual searching. No reading through hundreds of pages. Just ask questions in natural language and get precise, sourced answers instantly.
+</p>
 
-GitHub LinkedIn Email
+<p align="center">
+  <a href="https://github.com/BhavyasriLagishetty">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
+  <a href="https://linkedin.com/in/your-profile">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="mailto:your.email@example.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
+  </a>
+</p>
 
-What Is This?
-This project implements a Retrieval-Augmented Generation (RAG) pipeline using Streamlit, LangChain, and Groq's ultra-fast inference. It processes PDF research papers, converts them into searchable vector embeddings using FAISS and HuggingFace models, then answers your questions by retrieving relevant context and generating responses with Llama3.1-8B.
+---
 
-The result: an AI research assistant that goes from raw documents to intelligent answers — entirely automated.
+## 🤔 What Is This?
 
-Key Features
-Custom research paper processing — handles multiple PDFs with automatic text extraction
-9-beam semantic search — FAISS-powered vector similarity with HuggingFace all-MiniLM-L6-v2 embeddings
-11-dimensional state retrieval — 9 document chunks + context matching + relevance scoring
-Deep document understanding — RecursiveCharacterTextSplitter with 1000-char chunks, 200-char overlap
-Groq LPU inference — sub-second response times with Llama3.1-8B
-Dense retrieval scoring — similarity matching, relevance ranking, context windowing
-Persistent vector store — FAISS index auto-saves in session state; recreates on demand
-Live Q&A interface — real-time question answering with source chunk display
-Source transparency — view exactly which document sections support each answer
-Clean modular codebase — document loading, embeddings, retrieval, generation all separated
-Demo
+This project implements a **Retrieval-Augmented Generation (RAG)** pipeline using **Streamlit**, **LangChain**, and **Groq's** ultra-fast inference. It processes PDF research papers, converts them into searchable vector embeddings using **FAISS** and **HuggingFace** models, then answers your questions by retrieving relevant context and generating responses with **Llama3.1-8B**.
+
+**The result:** An AI research assistant that goes from raw documents to intelligent answers — entirely automated.
+
+---
+
+## ✨ Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 📄 **Custom Research Paper Processing** | Handles multiple PDFs with automatic text extraction |
+| 🔍 **9-Beam Semantic Search** | FAISS-powered vector similarity with HuggingFace all-MiniLM-L6-v2 embeddings |
+| 🧠 **Deep Document Understanding** | RecursiveCharacterTextSplitter with 1000-char chunks, 200-char overlap |
+| ⚡ **Groq LPU Inference** | Sub-second response times with Llama3.1-8B |
+| 🎯 **Dense Retrieval Scoring** | Similarity matching, relevance ranking, context windowing |
+| 💾 **Persistent Vector Store** | FAISS index auto-saves in session state; recreates on demand |
+| 📊 **Live Q&A Interface** | Real-time question answering with source chunk display |
+| 🔍 **Source Transparency** | View exactly which document sections support each answer |
+| 🧩 **Clean Modular Codebase** | Document loading, embeddings, retrieval, generation all separated |
+
+---
+
+## 🎬 Demo
+
+```
           ──── Document Processing Pipeline ────
   
   PDFs → Load → Split → Embed → Store → Retrieve → Generate → Answer
    ↓      ↓      ↲       ↓       ↓        ↓          ↓         ↓
   [Attention.pdf]  [1000-char chunks]  [FAISS]  [Top-k docs]  [Llama3.1-8B]
   [LLM.pdf]        [all-MiniLM-L6-v2]  [Index]  [Context]     [Response]
-  
+```
+
 The system always retrieves the most relevant document chunks first. The user asks questions in natural language — the agent retrieves context, generates answers, and displays source references.
 
-Architecture
+---
+
+## 🏗️ Architecture
+
+```
 ┌─────────────────────────────────────────────────────────────┐
 │                        RAG Pipeline                         │
 │                                                             │
@@ -66,58 +105,93 @@ Architecture
 │  │ Llama3.1-8B  │                                           │
 │  └──────────────┘                                           │
 └─────────────────────────────────────────────────────────────┘
-Neural Network Components
-Component	Architecture	Purpose
-Embeddings	all-MiniLM-L6-v2 (384-dim)	Convert text to vectors
-Vector Store	FAISS (Facebook AI)	Fast similarity search
-LLM	Llama3.1-8B-Instruct (8B params)	Generate natural language answers
-Context Window	5 retrieved chunks + query	Grounded generation
-How the System Works
-1 — Ingest
-The system reads PDF documents from the research_papers/ directory:
+```
 
-PyPDFDirectoryLoader extracts text from all PDFs
-RecursiveCharacterTextSplitter creates 1000-character chunks with 200-character overlap
-HuggingFaceEmbeddings (all-MiniLM-L6-v2) converts chunks to 384-dimensional vectors
-FAISS indexes vectors for millisecond retrieval
-2 — Retrieve (Similarity Search)
+### Neural Network Components
+
+| Component | Architecture | Purpose |
+|-----------|--------------|---------|
+| **Embeddings** | all-MiniLM-L6-v2 (384-dim) | Convert text to vectors |
+| **Vector Store** | FAISS (Facebook AI) | Fast similarity search |
+| **LLM** | Llama3.1-8B-Instruct (8B params) | Generate natural language answers |
+| **Context Window** | 5 retrieved chunks + query | Grounded generation |
+
+---
+
+## 🔄 How the System Works
+
+### 1 — Ingest 📥
+
+The system reads PDF documents from the `research_papers/` directory:
+
+- **PyPDFDirectoryLoader** extracts text from all PDFs
+- **RecursiveCharacterTextSplitter** creates 1000-character chunks with 200-character overlap
+- **HuggingFaceEmbeddings** (all-MiniLM-L6-v2) converts chunks to 384-dimensional vectors
+- **FAISS** indexes vectors for millisecond retrieval
+
+### 2 — Retrieve 🔍 (Similarity Search)
+
 When you ask a question:
 
-User query is embedded using the same model
-FAISS performs similarity search across all document chunks
-Top-5 most relevant chunks are retrieved as context
-3 — Generate (Groq Inference)
+1. User query is embedded using the same model
+2. FAISS performs similarity search across all document chunks
+3. Top-5 most relevant chunks are retrieved as context
+
+### 3 — Generate 🧠 (Groq Inference)
+
+```python
 retrieved_context = " ".join(top_5_chunks)
 prompt = f"Answer using only this context:\n\n{retrieved_context}\n\nQuestion: {user_query}"
 response = llama3_1_8b.generate(prompt)
-The Llama3.1-8B model generates answers strictly from provided context — no hallucinations, no external knowledge.
+```
 
-4 — Display
-Streaming answer display with markdown formatting
-Source chunks expandable in sidebar
-Response time measurement (typically 0.5-2 seconds)
-Document similarity scores visible
-Training/Usage Phases
-Phase	Sessions	What the System Does
-Setup	1	Install dependencies, set API keys, load PDFs
-Indexing	1	Create embeddings, build FAISS index (one-time)
-Exploration	1-5	Basic questions, testing retrieval quality
-Research	5-20	Deep questions, cross-document analysis
-Mastery	20+	Complex multi-hop queries, full paper synthesis
-The Documents — AI Research Papers
+The **Llama3.1-8B** model generates answers strictly from provided context — no hallucinations, no external knowledge.
+
+### 4 — Display 📺
+
+- ✅ Streaming answer display with markdown formatting
+- 📄 Source chunks expandable in sidebar
+- ⏱️ Response time measurement (typically 0.5-2 seconds)
+- 📊 Document similarity scores visible
+
+---
+
+## 📈 Usage Phases
+
+| Phase | Sessions | What the System Does |
+|-------|----------|---------------------|
+| **Setup** | 1 | Install dependencies, set API keys, load PDFs |
+| **Indexing** | 1 | Create embeddings, build FAISS index (one-time) |
+| **Exploration** | 1-5 | Basic questions, testing retrieval quality |
+| **Research** | 5-20 | Deep questions, cross-document analysis |
+| **Mastery** | 20+ | Complex multi-hop queries, full paper synthesis |
+
+---
+
+## 📚 The Documents — AI Research Papers
+
 Sample research papers included for immediate testing:
 
+```
               [Attention Is All You Need]
                      (Transformer)
                           ↓
               [Large Language Models Survey]
                      (LLM Overview)
-Paper	Content	Key Topics
-Attention.pdf	"Attention Is All You Need" (Vaswani et al.)	Transformers, self-attention, positional encoding
-LLM.pdf	LLM survey paper	Architecture, training, capabilities, limitations
+```
+
+| Paper | Content | Key Topics |
+|-------|---------|------------|
+| **Attention.pdf** | "Attention Is All You Need" (Vaswani et al.) | Transformers, self-attention, positional encoding |
+| **LLM.pdf** | LLM survey paper | Architecture, training, capabilities, limitations |
+
 The environment handles academic formatting, mathematical notation, citations, and multi-column layouts.
 
-Project Structure
+---
+
+## 📁 Project Structure
+
+```
 rag-document-qa/
 │
 ├── app.py                     ← Entry point — run this
@@ -132,12 +206,21 @@ rag-document-qa/
 │
 └── (Session State)            ← Runtime created
     └── vectors                ← FAISS index (in-memory)
-Getting Started
-Prerequisites
-Python 3.8 or higher
-pip
-Groq API key (free at console.groq.com)
-Installation
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.8 or higher
+- pip
+- Groq API key (free at [console.groq.com](https://console.groq.com))
+
+### Installation
+
+```bash
 # 1. Clone the repository
 git clone https://github.com/BhavyasriLagishetty/RAG.git
 cd RAG
@@ -157,42 +240,67 @@ cp .env.example .env            # Or create manually
 # 5. Prepare documents
 mkdir -p research_papers
 # Copy your PDFs into research_papers/ folder
-Run Application
+```
+
+### Run Application
+
+```bash
 streamlit run app.py
+```
+
 Two interfaces open immediately:
 
-Streamlit web app — interactive Q&A interface at http://localhost:8501
-Terminal logs — processing status and debug information
+- 🌐 **Streamlit web app** — interactive Q&A interface at `http://localhost:8501`
+- 💻 **Terminal logs** — processing status and debug information
+
 The app resumes with existing embeddings if session state persists.
 
-Hyperparameters
-Parameter	Value	Effect
-CHUNK_SIZE	1000 chars	Large context windows per chunk
-CHUNK_OVERLAP	200 chars	Overlap maintains context continuity
-EMBEDDING_MODEL	all-MiniLM-L6-v2	Fast, high-quality sentence embeddings
-VECTOR_DIM	384	Dense vector representation
-TOP_K_RETRIEVAL	5 chunks	Balance between context breadth and precision
-LLM_MODEL	llama-3.1-8b-instant	Fast, capable instruction-following model
-TEMPERATURE	0.7	Balanced creativity and determinism
-MAX_TOKENS	1024	Sufficient for detailed answers
-SENSOR_MAX	220 px	Max sensor range (legacy from template)
-Environment Variables
-Variable	Required	Description	Get From
-GROQ_API_KEY	Yes	Groq API access key	console.groq.com
-HF_TOKEN	No	HuggingFace token (optional)	huggingface.co
-Dependencies
-Package	Version	Purpose
-streamlit	≥ 1.28.0	Web application interface
-langchain-groq	≥ 0.1.0	Groq LLM integration
-langchain-community	≥ 0.0.10	Community loaders and vector stores
-langchain-text-splitters	≥ 0.0.1	Document chunking strategies
-faiss-cpu	≥ 1.7.4	Facebook AI Similarity Search (CPU)
-sentence-transformers	≥ 2.2.0	HuggingFace embeddings backend
-python-dotenv	≥ 1.0.0	Environment variable management
-pypdf	≥ 3.0.0	PDF parsing and text extraction
-License
-Distributed under the MIT License.
+---
 
+## ⚙️ Hyperparameters
+
+| Parameter | Value | Effect |
+|-----------|-------|--------|
+| `CHUNK_SIZE` | 1000 chars | Large context windows per chunk |
+| `CHUNK_OVERLAP` | 200 chars | Overlap maintains context continuity |
+| `EMBEDDING_MODEL` | all-MiniLM-L6-v2 | Fast, high-quality sentence embeddings |
+| `VECTOR_DIM` | 384 | Dense vector representation |
+| `TOP_K_RETRIEVAL` | 5 chunks | Balance between context breadth and precision |
+| `LLM_MODEL` | llama-3.1-8b-instant | Fast, capable instruction-following model |
+| `TEMPERATURE` | 0.7 | Balanced creativity and determinism |
+| `MAX_TOKENS` | 1024 | Sufficient for detailed answers |
+
+---
+
+## 🔐 Environment Variables
+
+| Variable | Required | Description | Get From |
+|----------|----------|-------------|----------|
+| `GROQ_API_KEY` | ✅ Yes | Groq API access key | [console.groq.com](https://console.groq.com) |
+| `HF_TOKEN` | ❌ No | HuggingFace token (optional) | [huggingface.co](https://huggingface.co) |
+
+---
+
+## 📦 Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `streamlit` | ≥ 1.28.0 | Web application interface |
+| `langchain-groq` | ≥ 0.1.0 | Groq LLM integration |
+| `langchain-community` | ≥ 0.0.10 | Community loaders and vector stores |
+| `langchain-text-splitters` | ≥ 0.0.1 | Document chunking strategies |
+| `faiss-cpu` | ≥ 1.7.4 | Facebook AI Similarity Search (CPU) |
+| `sentence-transformers` | ≥ 2.2.0 | HuggingFace embeddings backend |
+| `python-dotenv` | ≥ 1.0.0 | Environment variable management |
+| `pypdf` | ≥ 3.0.0 | PDF parsing and text extraction |
+
+---
+
+## 📝 License
+
+Distributed under the **MIT License**.
+
+```
 MIT License
 
 Copyright (c) 2024 Bhavyasri Lagishetty
@@ -210,14 +318,40 @@ copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+```
 
-Author
-Bhavyasri Lagishetty
+---
 
-Building intelligent systems that understand documents
+## 👩‍💻 Author
 
+**Bhavyasri Lagishetty**
 
-GitHub LinkedIn Email
+<p align="left">
+  <a href="https://github.com/BhavyasriLagishetty">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
+  <a href="https://linkedin.com/in/your-profile">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="mailto:your.email@example.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
+  </a>
+</p>
 
+> Building intelligent systems that understand documents 🧠📄
 
-If you found this project useful, please consider giving it a ⭐
+---
+
+<p align="center">
+  ⭐ <b>If you found this project useful, please consider giving it a star!</b> ⭐
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/BhavyasriLagishetty/RAG?style=social" alt="Stars"/>
+  <img src="https://img.shields.io/github/forks/BhavyasriLagishetty/RAG?style=social" alt="Forks"/>
+</p>
+
+<p align="center">
+  Made with ❤️ and ⚡ Groq speed by <b>Bhavyasri Lagishetty</b>
+</p>
+```
