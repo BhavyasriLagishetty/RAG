@@ -10,8 +10,8 @@
 > An intelligent document questioning system that lets you chat with your PDF research papers using **state-of-the-art retrieval-augmented generation**. No manual searching. No reading through hundreds of pages. Just ask questions in natural language and get precise, sourced answers instantly.
 
 [![GitHub](https://img.shields.io/badge/GitHub-BhavyasriLagishetty-181717?style=flat-square&logo=github)](https://github.com/BhavyasriLagishetty)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-BhavyasriLagishetty-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/bhavyasri-lagishetty/)
-[![Email](https://img.shields.io/badge/Email-bhavyasri.lagishetty%40gmail.com-EA4335?style=flat-square&logo=gmail)](mailto:bhavyasri.lagishetty@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-BhavyasriLagishetty-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/bhavya-sri-lagishetty-9110252aa/)
+[![Email](https://img.shields.io/badge/Email-bhavyasri.lagishetty%40gmail.com-EA4335?style=flat-square&logo=gmail)](mailto:bhavyasrilagishetty@gmail.com)
 
 ---
 
@@ -39,17 +39,11 @@ The result: an AI research assistant that goes from raw documents to intelligent
 ---
 
 ## Demo
-plain
-Copy
-      ──── Document Processing Pipeline ────
 PDFs → Load → Split → Embed → Store → Retrieve → Generate → Answer
 ↓      ↓      ↲       ↓       ↓        ↓          ↓         ↓
 [Attention.pdf]  [1000-char chunks]  [FAISS]  [Top-k docs]  [Llama3.1-8B]
 [LLM.pdf]        [all-MiniLM-L6-v2]  [Index]  [Context]     [Response]
-plain
-Copy
 
-The system always retrieves the most relevant document chunks first. The user asks questions in natural language — the agent retrieves context, generates answers, and displays source references.
 
 ---
 
@@ -82,8 +76,7 @@ The system always retrieves the most relevant document chunks first. The user as
 │  │ Llama3.1-8B  │                                           │
 │  └──────────────┘                                           │
 └─────────────────────────────────────────────────────────────┘
-plain
-Copy
+
 
 ### Neural Network Components
 
@@ -172,20 +165,16 @@ The environment handles academic formatting, mathematical notation, citations, a
 ## Project Structure
 
 ```
-rag-document-qa/
+RAG/
 │
-├── app.py                   ← Entry point — run this
-├── requirements.txt         ← All dependencies
-├── .env                     ← API keys (create this)
-├── .gitignore
-├── README.md
+├── app.py                   ← Main Streamlit application (entry point)
+├── Attention.pdf            ← Sample: "Attention Is All You Need" paper
+├── LLM.pdf                  ← Sample: Large Language Models survey
+├── README.md                ← Project documentation
 │
-├── research_papers/         ← Put your PDFs here
-│   ├── Attention.pdf        ← Sample: Transformer paper
-│   └── LLM.pdf              ← Sample: LLM survey
-│
-└── (Session State)          ← Runtime created
-    └── vectors              ← FAISS index (in-memory)
+└── research_papers/         ← Directory for your PDF documents
+    ├── Attention.pdf        ← (Copy sample papers here to test)
+    └── LLM.pdf
 ```
 
 ---
@@ -278,8 +267,8 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 *Building intelligent systems that understand documents*
 
 [![GitHub](https://img.shields.io/badge/GitHub-BhavyasriLagishetty-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BhavyasriLagishetty)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-BhavyasriLagishetty-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhavyasri-lagishetty/)
-[![Email](https://img.shields.io/badge/Email-bhavyasri.lagishetty%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bhavyasri.lagishetty@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-BhavyasriLagishetty-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhavya-sri-lagishetty-9110252aa/)
+[![Email](https://img.shields.io/badge/Email-bhavyasri.lagishetty%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:bhavyasrilagishetty@gmail.com)
 
 *If you found this project useful, please consider giving it a ⭐*
 ```
